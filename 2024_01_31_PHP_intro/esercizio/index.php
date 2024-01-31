@@ -11,13 +11,84 @@
 
 <body>
     <?php
+    date_default_timezone_set('Europe/Rome');
+
+    $day = date('N');
+
+    switch ($day) {
+        case 1:
+            $giorno = "lunedi";
+            break;
+        case 2:
+            $giorno = "martedi";
+            break;
+        case 3:
+            $giorno = "mercoledi";
+            break;
+        case 4:
+            $giorno = "giovedi";
+            break;
+        case 5:
+            $giorno =  "venerdi";
+            break;
+        case 6:
+            $giorno = "sabato";
+            break;
+        case 7:
+            $giorno = "domenica";
+            break;
+    }
+
+    $month = date('n');
+
+    switch ($month) {
+        case 1:
+            $mese = "gennaio";
+            break;
+        case 2:
+            $mese = "febbraio";
+            break;
+        case 3:
+            $mese = "marzo";
+            break;
+        case 4:
+            $mese = "aprile";
+            break;
+        case 5:
+            $mese = "maggio";
+            break;
+        case 6:
+            $mese = "giugno";
+            break;
+        case 7:
+            $mese = "luglio";
+            break;
+        case 8:
+            $mese = "agosto";
+            break;
+        case 9:
+            $mese = "settembre";
+            break;
+        case 10:
+            $mese = "ottobre";
+            break;
+        case 11:
+            $mese = "novembre";
+            break;
+        case 12:
+            $mese = "dicembre";
+            break;
+    }
+
+
     echo " <div class='text-center'>----------Esercizio 1 -----------<br>";
 
-    echo '<h2 class="text-primary">' . date("d/m/Y H:i:s") . "</h2>";
+    echo '<h2 class="text-primary">' . $giorno . " " . date("d") . " " . $mese . " " . date("Y  - G:i:s ");
+    "</h2>";
 
-    echo "-------------------------------------</div>";
 
-    echo "<br><br><br><br>";
+
+    echo "</div><br><br><br><br>";
 
     echo "<div class='text-center'>-------Esercizio 2 -----------<br>";
 
@@ -828,13 +899,80 @@
 
 
 
+    $allTeamsData = [
+        "atalanta" => $atalanta,
+        "bologna" => $bologna,
+        "cagliari" => $cagliari,
+        "empoli" =>  $empoli,
+        "fiorentina" => $fiorentina,
+        "frosinone" => $frosinone,
+        "genoa" =>   $genoa,
+        "hellas_verona" => $hellas_verona,
+        "inter" => $inter,
+        "juventus" =>  $juventus,
+        "lazio" => $lazio,
+        "lecce" => $lecce,
+        "milan" => $milan,
+        "monza" => $monza,
+        "napoli" => $napoli,
+        "roma" =>  $roma,
+        "salernitana" => $salernitana,
+        "sassuolo" => $sassuolo,
+        "torino" => $torino,
+        "udinese" => $udinese
+    ];
+
+
+
+    echo (count($allTeamsData));
+
+    // print("<pre>" . print_r($allTeamsData, true) . "</pre>");
+
+
+    $teams = [];
+
+    foreach ($allTeamsData as $team => $teamData) {
+        $teams[]  = $team;
+    }
+    print("<pre>" . print_r($teams, true) . "</pre>");
 
 
 
 
+    $calendario = [];
+    $passed = [];
 
+    for ($i = 0; $i < count($teams) + 1; $i++) {
+        while (count($passed) < count($teams)) {
+            $team1index = rand(0, count($teams));
+            $team2index = rand(0, count($teams));
+            $team1 = $teams[$team1index];
+            $team2 = $teams[$team2index];
 
+            if (!in_array($team1, $passed) & !in_array($team2, $passed) & $team1 !== $team2) {
+                $match = [$team1, $team2];
+                print_r($match); 
+                echo "<br>";
+                for ($j = 0; $j < count($calendario); $j++) {
 
+                    if (!in_array($match, $calendario["giornata_" . $j + 1])) {
+                        $passed[] = $team1;
+                        $passed[] = $team2;
+                        $calendario["giornata_" . $i + 1][] = $match;
+
+                    } else {
+                        continue;
+                    }
+                }
+            } else {
+                continue;
+            }
+        }
+        $passed = [];
+    }
+    echo "<pre>";
+    print_r($calendario);
+    echo "</pre>";
 
     ?>
 
