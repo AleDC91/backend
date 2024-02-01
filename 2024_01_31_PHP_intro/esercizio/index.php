@@ -936,43 +936,40 @@
     }
     print("<pre>" . print_r($teams, true) . "</pre>");
 
-
-
-
+    $numTeams = count($teams);
+    $numRounds = $numTeams - 1;
     $calendario = [];
-    $passed = [];
+    $playedMatches = [];
 
-    for ($i = 0; $i < count($teams) + 1; $i++) {
-        while (count($passed) < count($teams)) {
-            $team1index = rand(0, count($teams));
-            $team2index = rand(0, count($teams));
-            $team1 = $teams[$team1index];
-            $team2 = $teams[$team2index];
+    // for ($round = 1; $round <= $numRounds; $round++) {
 
-            if (!in_array($team1, $passed) & !in_array($team2, $passed) & $team1 !== $team2) {
-                $match = [$team1, $team2];
-                print_r($match); 
-                echo "<br>";
-                for ($j = 0; $j < count($calendario); $j++) {
+    //     $remainingMatches = count($teams) / 2;
+    //     $playing_teams = [];
+    //     while ($remainingMatches > 0) {
 
-                    if (!in_array($match, $calendario["giornata_" . $j + 1])) {
-                        $passed[] = $team1;
-                        $passed[] = $team2;
-                        $calendario["giornata_" . $i + 1][] = $match;
+    //         $index1 = mt_rand(0, count($teams) - 1);
+    //         $team1 = $teams[$index1];
 
-                    } else {
-                        continue;
-                    }
-                }
-            } else {
-                continue;
-            }
-        }
-        $passed = [];
-    }
+    //         $index2 = mt_rand(0, count($teams) - 1);
+    //         $team2 = $teams[$index2];
+    //         echo    $team1 . ' ' . $team2 . "<br>";
+    //         if ($team1 !== $team2 && (!in_array([$team1, $team2], $playedMatches)) && (!in_array([$team2, $team1], $playedMatches)) && (!in_array($team1, $playing_teams))  && (!in_array($team2, $playing_teams)) ){
+    //             echo "nell' if" . $team1 . $team2;
+    //             $match = [$team1, $team2];
+    //             $playing_teams[] = $team1;
+    //             $playing_teams[] = $team2;
+    //             $playedMatches[] = $match;
+    //             $calendario["giornata_" . $round][] = $match;
+    //             $remainingMatches--;
+    //         }
+    //     }
+    // }
+
     echo "<pre>";
     print_r($calendario);
     echo "</pre>";
+
+
 
     ?>
 
