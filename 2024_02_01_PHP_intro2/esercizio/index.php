@@ -50,7 +50,7 @@
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 
-    <table class="table mx-5">
+    <table class="table mx-5 mt-5">
         <thead>
             <th>Avatar</th>
             <th>First Name</th>

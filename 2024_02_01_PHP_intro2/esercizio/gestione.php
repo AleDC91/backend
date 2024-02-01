@@ -29,7 +29,9 @@ if (!empty($_FILES['userAvatar'])) {
         if (
             $userAvatar["type"] == "image/jpeg" ||
             $userAvatar["type"] == "image/png" ||
-            $userAvatar["type"] == "image/gif"
+            $userAvatar["type"] == "image/gif" ||
+            $userAvatar["type"] == "image/webp"
+
         ) {
 
             if (move_uploaded_file($file_tmp, $target_dir . $file_name)) {
