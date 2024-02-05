@@ -1,0 +1,8 @@
+.edit-form{
+    position: fixed;
+    left: calc(50vw - 25%);
+    top: calc(50vh - 25%);
+    background-color: rgb(185, 185, 185);
+    padding: 20px;
+    border-radius: 10px;
+}

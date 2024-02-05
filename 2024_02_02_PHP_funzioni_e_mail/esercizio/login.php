@@ -8,10 +8,12 @@ foreach ($_SESSION["usersList"] as $id => $user) {
     if ($id == $_SESSION["userID"]) {
         $isLogged = true;
         $_SESSION["isLogged"] = true;
+
         echo "Logged in ";
         header("Location: http://localhost/2024_02_02_PHP_funzioni_e_mail/esercizio/index.php");
     }
 }
+
 
 
 
