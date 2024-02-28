@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<users>
+    <user>
+        <name>Mario</name>
+        <lastname>Rossi</lastname>
+        <city>Roma</city>
+    </user>
+        <user>
+        <name>Giuseppe</name>
+        <lastname>Verdi</lastname>
+        <city>Milano</city>
+    </user>
+</users>
