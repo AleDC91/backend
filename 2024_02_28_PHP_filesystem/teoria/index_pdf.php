@@ -42,5 +42,9 @@ $pdf->AddPage();
 $pdf->SetFont('Times','',12);
 for($i=1;$i<=40;$i++)
     $pdf->Cell(0,10,'Printing line number '.$i,0,1);
-$pdf->Output('F', 'file/file.pdf', true);
+// $pdf->Output('F', 'file/file.pdf', true);  // salva il file nella cartella definita
+// $pdf->Output('D', 'file.pdf', true);
+$pdf->Output('I', 'file.pdf', true);
+
+
 ?>
