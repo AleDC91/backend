@@ -43,8 +43,8 @@ $pdf->SetFont('Times','',12);
 for($i=1;$i<=40;$i++)
     $pdf->Cell(0,10,'Printing line number '.$i,0,1);
 // $pdf->Output('F', 'file/file.pdf', true);  // salva il file nella cartella definita
-// $pdf->Output('D', 'file.pdf', true);
-$pdf->Output('I', 'file.pdf', true);
+// $pdf->Output('D', 'file.pdf', true); // forza il download
+$pdf->Output('I', 'file.pdf', true); // lo apre con il pdf viewer
 
 
 ?>
