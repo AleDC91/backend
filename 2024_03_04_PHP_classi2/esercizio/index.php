@@ -48,6 +48,16 @@ $form->setRadioFields([
     ]);
 $form->drawForm();
 
+
+$l1 = new Libro("Titolo1", "Autore1", "anno1");
+$l2 = new Libro("Titolo2", "Autore2", "anno2");
+$l3 = new Libro("Titolo3", "Autore3", "anno3");
+$l4 = new Libro("Titolo4", "Autore4", "anno4");
+
+$d1 = new DVD("Titolo1", "Autore1", "anno1");
+$d2 = new DVD("Titolo2", "Autore2", "anno2");
+$d3 = new DVD("Titolo3", "Autore3", "anno3");
+
 echo MaterialeBibliotecario::getContatoreMateriale(); 
 echo "<br>";
 echo Libro::getCountLibri();

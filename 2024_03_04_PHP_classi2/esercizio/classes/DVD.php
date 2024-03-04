@@ -23,7 +23,7 @@ class DVD extends MaterialeBibliotecario {
     }
 
     function restituisci() {
-        // implementa
-    }
+        self::$countDVD--;
+        parent::$contatoreMateriale--;    }
 
 }
